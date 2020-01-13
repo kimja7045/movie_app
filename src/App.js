@@ -34,16 +34,41 @@ import PropTypes from "prop-types";
 //   return <Food name={dish.name} name2={dish.name2} rating={dish.rating} key={dish.name}/>
 // }
 
-function App() {
-  return (
-    <div>
-      {/* {FoodLike.map((dish) => (
-        <food name={dish.name}
-              key={dish.name}/>
-      ))} */}
-      {/* {foodLike.map(renderfood)} */}
-    </div >
-  );
+// function App() {
+//   return (
+//     <div>
+//       {/* {FoodLike.map((dish) => (
+//         <food name={dish.name}
+//               key={dish.name}/>
+//       ))} */}
+//       {/* {foodLike.map(renderfood)} */}
+//     </div >
+//   );
+// }
+
+class App extends React.Component {
+
+  state = {
+    count: 0
+  }
+  plusButton = () => {
+    this.setState(current=>({
+      count: current.count + 1
+    }));
+  }
+
+  render() {
+
+    return (
+      <div>
+        <h1>number is {this.state.count}
+          <button onClick={this.plusButton}>+</button>
+          <button>-</button>
+
+        </h1>
+      </div>
+    );
+  }
 }
 
 export default App;
