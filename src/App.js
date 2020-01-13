@@ -47,26 +47,24 @@ import PropTypes from "prop-types";
 // }
 
 class App extends React.Component {
+  state={
+    isLoading:true,
+    movies:[]
+  };
 
-  state = {
-    count: 0
-  }
-  plusButton = () => {
-    this.setState(current=>({
-      count: current.count + 1
-    }));
+  componentDidMount(){
+    setTimeout(()=>{
+      this.setState({
+        isLoading:false,
+        book:true
+      });
+    },6000);
   }
 
   render() {
-
+    const {isLoading}=this.state;
     return (
-      <div>
-        <h1>number is {this.state.count}
-          <button onClick={this.plusButton}>+</button>
-          <button>-</button>
-
-        </h1>
-      </div>
+      <div>{isLoading?"Loading":"We are Ready"}</div>
     );
   }
 }
